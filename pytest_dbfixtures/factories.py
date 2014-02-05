@@ -208,11 +208,6 @@ def rabbitmq_proc(config_file=None, server=None, host=None, port=None,
         print '\nStarting RabbitMQ process on port', rabbit_port
         rabbit_executor.start()
         print 'Started'
-        pid_file = base_path / rabbit_node_name + '.pid'
-        wait_cmd = rabbit_ctl, '-q', 'wait', pid_file
-        subprocess.Popen(wait_cmd).communicate()
-        print 'after subprocess'
-
         return rabbit_executor
 
     return rabbitmq_proc_fixture

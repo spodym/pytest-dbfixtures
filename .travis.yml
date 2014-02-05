@@ -3,12 +3,11 @@ python:
     - "2.7"
 install:
     - python setup.py install
-    - pip install pymongo redis pika MySQL-python
-before_script:
-    - lsof -i :5672
-    - lsof -i :5673
-    - lsof -i :5675
+    - pip install pika
 script:
-    - py.test -v -s tests
-after_script: cat erl_crash.dump
-after_failure: cat erl_crash.dump
+    - py.test -s -vvv -k rabbit tests
+env:
+  global:
+    - TIMEOUT=100
+notifications:
+    email: false
