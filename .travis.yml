@@ -6,3 +6,5 @@ install:
     - pip install pymongo redis pika MySQL-python
 script:
     - py.test -v -s tests
+after_script: cat erl_crash.dump
+after_failure: cat erl_crash.dump
