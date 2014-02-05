@@ -5,4 +5,4 @@ install:
     - python setup.py install
     - pip install pymongo redis pika MySQL-python
 script:
-    - py.test tests
+    - py.test -v -s tests
