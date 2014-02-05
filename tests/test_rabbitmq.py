@@ -7,8 +7,8 @@ def test_rabbitmq(rabbitmq):
 
 
 
-rabbitmq_proc2 = factories.rabbitmq_proc(port=5672, node_name='rabbitmq-test2')
-rabbitmq2 = factories.rabbitmq('rabbitmq_proc2', port=5672)
+rabbitmq_proc2 = factories.rabbitmq_proc(port=5675, node_name='rabbitmq-test2')
+rabbitmq2 = factories.rabbitmq('rabbitmq_proc2', port=5675)
 
 
 def test_second_rabbitmq(rabbitmq, rabbitmq2):

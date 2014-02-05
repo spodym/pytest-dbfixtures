@@ -4,6 +4,10 @@ python:
 install:
     - python setup.py install
     - pip install pymongo redis pika MySQL-python
+before_script:
+    - lsof -i :5672
+    - lsof -i :5673
+    - lsof -i :5675
 script:
     - py.test -v -s tests
 after_script: cat erl_crash.dump
